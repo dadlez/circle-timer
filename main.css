@@ -1,0 +1,7 @@
+.box__circle {
+	width: 50px;
+	height: 100px;
+	background: darkGrey;
+	border-radius: 0 25% 25% 0;
+	transform-origin: 0% 50%;
+}
