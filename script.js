@@ -30,10 +30,11 @@ $( document ).ready(function(event) {
 		console.log(x);
 		[ min, sec ] = countdown(min, sec)
 
-		$('.box__circle').css('transform', `rotateZ(${x}deg)`)
+		$('.box__circle')[0].style.setProperty('--angle', `${x}deg`)
 		$('.min').text(min)
 		$('.sec').text(sec)
 	}, 1000);
 
 	const stopTimer = function() { clearInterval(timer) }
+
 });
