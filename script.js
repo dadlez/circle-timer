@@ -32,8 +32,8 @@ $( document ).ready(function(event) {
 		let y = 1 - ((min * 60 + sec) / x);
 		let angle = 360 * y + 90;
 
-		$('.min').text(min)
-		$('.sec').text(sec)
+		$('.min').text(min + " min")
+		$('.sec').text(sec + " sek")
 
 		if (y <= 1) {
 			if (y <= 0.5) {
