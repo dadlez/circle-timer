@@ -3,20 +3,22 @@ $( document ).ready(function(event) {
 	console.log("ready");
 
 	const startMin = 0;
-	const startSec = 10;
+	const startSec = 20;
+	const x = (startMin * 60 + startSec);
 	let min = startMin;
 	let sec = startSec;
 	console.log(min, sec);
 	$('.min').text(min)
 	$('.sec').text(sec)
 
+	const stopTimer = function() { clearInterval(timer) }
 
 	const countdown = (min, sec) => {
-		if (sec === 0 && min > 0) {
+		if (sec === 0 && min === 0) {
+			stopTimer();
+		} else if (sec === 0 && min > 0) {
 			min -= 1;
 			sec = 59;
-		} else if (sec === 0 && min === 0) {
-			stopTimer();
 		} else {
 			sec -= 1;
 		}
@@ -24,17 +26,24 @@ $( document ).ready(function(event) {
 		return [min, sec]
 	}
 
-
 	const timer = setInterval(function() {
-		let x = 360 * ((min * 60 + sec) / (startMin * 60 + startSec));
-		console.log(x);
 		[ min, sec ] = countdown(min, sec)
 
-		$('.box__circle')[0].style.setProperty('--angle', `${x}deg`)
+		let y = 1 - ((min * 60 + sec) / x);
+		let angle = 360 * y + 90;
+
 		$('.min').text(min)
 		$('.sec').text(sec)
-	}, 1000);
 
-	const stopTimer = function() { clearInterval(timer) }
+		if (y <= 1) {
+			if (y <= 0.5) {
+				$('.timer__circle--mask1')[0].style.setProperty('--angle', `${angle}deg`);
+			} else {
+				$('.timer__circle').addClass('timer__circle--mask2');
+				$('.timer__circle--mask2')[0].style.setProperty('--angle', `${180 + angle}deg`);
+			}
+
+		}
+	}, 1000);
 
 });
