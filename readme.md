@@ -1,1 +1,1 @@
-https://cssanimation.rocks/pl/watch/
+Timer with circle progress bar.
