@@ -2,14 +2,16 @@
 $( document ).ready(function(event) {
 	console.log("ready");
 
-	const startMin = 0;
-	const startSec = 20;
+	// set initial timer values here:
+	const startMin = 1;
+	const startSec = 13;
+	//
 	const x = (startMin * 60 + startSec);
 	let min = startMin;
 	let sec = startSec;
 	console.log(min, sec);
-	$('.min').text(min)
-	$('.sec').text(sec)
+	$('.min').text(min + " min")
+	$('.sec').text(sec + "sek")
 
 	const stopTimer = function() { clearInterval(timer) }
 
