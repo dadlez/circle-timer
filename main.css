@@ -38,7 +38,6 @@
 	right: 3em;
 }
 
-
 .timer__circle {
 	width: 9em;
 	height: 9em;
@@ -95,6 +94,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		padding-right: 5%;
 	}
 	.timer, .box__text {
 		position: relative;
@@ -104,6 +104,7 @@
 	}
 	.box__text {
 		padding-left: 50%;
+		text-align: right;
 	}
 	.timer__circle::after {
 		background-color: #22262F;
