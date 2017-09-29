@@ -1,1 +1,1 @@
-Timer with circle progress bar.
+Banner with timer and circle progress bar.
